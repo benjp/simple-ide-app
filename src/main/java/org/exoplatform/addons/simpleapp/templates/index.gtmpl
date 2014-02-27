@@ -1,0 +1,23 @@
+<script type="text/javascript">
+  (function() {
+    var simpleAppJs = document.createElement('script'); simpleAppJs.type = 'text/javascript'; simpleAppJs.async = true;
+    simpleAppJs.src = '${js}';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(simpleAppJs);
+  })();
+</script>
+<div class="simpleapp-portlet">
+  <div class="simple-app-content uiBox">
+    <h6 class="title clearfix"><center>${title}</center></h6>
+    <div class="simpleapp-content uiContentBox" data-content-url="${html}">
+      <div class="loading">Loading...</div>
+    </div>
+  </div>
+</div>
+<script>
+  jQuery( document ).ready(function( $ ) {
+    $(".simpleapp-content").each(function () {
+      var contentUrl = $(this).attr("data-content-url");
+      $(this).load(contentUrl);
+    });
+  });
+</script>
