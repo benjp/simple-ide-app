@@ -24,23 +24,24 @@ public class Controller
     String id = portletPreferences.getValue("id", "");
     String title = portletPreferences.getValue("title", "");
     String html = portletPreferences.getValue("html", "");
+/*
     String serverBase = getServerBase(renderContext.getHttpContext(), id);
-
     String js = portletPreferences.getValue("js", null);
     if (id!=null && (js==null || "default".equals(js)) ) {
       // http://demo.exoplatform.net/rest/jcr/repository/dev-monit/rss/default.js
       js = serverBase + "/default.js";
     }
+*/
 
     return indexTemplate.with()
             .set("title", title)
             .set("id", id)
-            .set("js", js)
             .set("html", html)
             .ok();
   }
 
 
+/*
   private String getServerBase(HttpContext request, String id) {
     String serverBase = "";
     String scheme = request.getScheme();
@@ -52,4 +53,5 @@ public class Controller
 
     return serverBase;
   }
+*/
 }

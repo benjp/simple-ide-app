@@ -49,7 +49,7 @@
      </portlet-preferences>
    </portlet>
 
-  <!--filter>
+  <filter>
     <filter-name>ResponseFilter</filter-name>
     <filter-class>org.exoplatform.addons.simpleapp.ResponseFilter</filter-class>
     <lifecycle>RENDER_PHASE</lifecycle>
@@ -58,6 +58,6 @@
   <filter-mapping>
     <filter-name>ResponseFilter</filter-name>
     <portlet-name>SimpleappApplication</portlet-name>
-  </filter-mapping-->
+  </filter-mapping>
 
 </portlet-app>
