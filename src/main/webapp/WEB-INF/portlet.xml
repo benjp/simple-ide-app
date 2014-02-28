@@ -46,6 +46,11 @@
          <value>default</value>
          <read-only>false</read-only>
        </preference>
+       <preference>
+         <name>cache</name>
+         <value>60</value>
+         <read-only>false</read-only>
+       </preference>
      </portlet-preferences>
    </portlet>
 

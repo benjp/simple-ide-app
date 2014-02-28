@@ -1,7 +1,7 @@
 <div class="simpleapp-portlet">
   <div class="simple-app-content uiBox">
     <h6 class="title clearfix"><center>${title}</center></h6>
-    <div class="simpleapp-content simpleapp-content-${id} uiContentBox" data-content-url="${html}">
+    <div class="simpleapp-content simpleapp-content-${id} uiContentBox" data-content-url="${html}" data-cache-sec="${cache}">
       <div class="loading">Loading...</div>
     </div>
   </div>
@@ -10,8 +10,18 @@
   jQuery( document ).ready(function( $ ) {
     $(".simpleapp-content").each(function () {
       var contentUrl = $(this).attr("data-content-url");
+      var cache = Math.round($(this).attr("data-cache-sec"));
       if (contentUrl !== undefined && contentUrl !== "default") {
-        $(this).load(contentUrl);
+
+        var value = jzGetParam("simpleapp:${id}");
+        if (! value && cache > 0) {
+          console.log("get data");
+          $(this).load(contentUrl, function(data) {
+            jzStoreParam("simpleapp:${id}", data, cache);
+          });
+        } else {
+          $(this).html( value );
+        }
       }
     });
   });
