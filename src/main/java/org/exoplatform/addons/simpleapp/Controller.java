@@ -25,6 +25,7 @@ public class Controller
     String title = portletPreferences.getValue("title", "");
     String html = portletPreferences.getValue("html", "");
     String cache = portletPreferences.getValue("cache", "-1");
+    String decoration = portletPreferences.getValue("decoration", "true");
 /*
     String serverBase = getServerBase(renderContext.getHttpContext(), id);
     String js = portletPreferences.getValue("js", null);
@@ -39,6 +40,7 @@ public class Controller
             .set("id", id)
             .set("html", html)
             .set("cache", cache)
+            .set("decoration", decoration)
             .ok();
   }
 
